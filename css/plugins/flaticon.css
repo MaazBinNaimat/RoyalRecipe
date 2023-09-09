@@ -1,0 +1,142 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 16/12/2020 19:39
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../../fonts/Flaticon.eot");
+  src: url("../../fonts/Flaticond41d.eot?#iefix") format("embedded-opentype"),
+       url("../../fonts/Flaticon.woff2") format("woff2"),
+       url("../../fonts/Flaticon.woff") format("woff"),
+       url("../../fonts/Flaticon.ttf") format("truetype"),
+       url("../../fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../../fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+    font-style: normal;
+}
+
+.flaticon-add:before { content: "\f100"; }
+.flaticon-plus-symbol:before { content: "\f101"; }
+.flaticon-burger:before { content: "\f102"; }
+.flaticon-dish:before { content: "\f103"; }
+.flaticon-fast-food:before { content: "\f104"; }
+.flaticon-fast-food-1:before { content: "\f105"; }
+.flaticon-pizza:before { content: "\f106"; }
+.flaticon-hamburger:before { content: "\f107"; }
+.flaticon-fork:before { content: "\f108"; }
+.flaticon-pizza-slice:before { content: "\f109"; }
+.flaticon-fast-food-2:before { content: "\f10a"; }
+.flaticon-kebab:before { content: "\f10b"; }
+.flaticon-hot-dog:before { content: "\f10c"; }
+.flaticon-burger-1:before { content: "\f10d"; }
+.flaticon-coffee-cup:before { content: "\f10e"; }
+.flaticon-hamburger-1:before { content: "\f10f"; }
+.flaticon-spaguetti:before { content: "\f110"; }
+.flaticon-salad:before { content: "\f111"; }
+.flaticon-cooking:before { content: "\f112"; }
+.flaticon-diet:before { content: "\f113"; }
+.flaticon-taco:before { content: "\f114"; }
+.flaticon-clock:before { content: "\f115"; }
+.flaticon-food-serving:before { content: "\f116"; }
+.flaticon-vegetables:before { content: "\f117"; }
+.flaticon-restaurant:before { content: "\f118"; }
+.flaticon-taco-1:before { content: "\f119"; }
+.flaticon-tray:before { content: "\f11a"; }
+.flaticon-restaurant-1:before { content: "\f11b"; }
+.flaticon-whisky:before { content: "\f11c"; }
+.flaticon-salad-1:before { content: "\f11d"; }
+.flaticon-cake:before { content: "\f11e"; }
+.flaticon-fast-food-3:before { content: "\f11f"; }
+.flaticon-apple:before { content: "\f120"; }
+.flaticon-waiter:before { content: "\f121"; }
+.flaticon-food:before { content: "\f122"; }
+.flaticon-vegan-food:before { content: "\f123"; }
+.flaticon-tray-1:before { content: "\f124"; }
+.flaticon-cutlery:before { content: "\f125"; }
+.flaticon-vegan-food-1:before { content: "\f126"; }
+.flaticon-vegan-food-2:before { content: "\f127"; }
+.flaticon-tray-2:before { content: "\f128"; }
+.flaticon-fish:before { content: "\f129"; }
+.flaticon-knife:before { content: "\f12a"; }
+.flaticon-chicken-leg:before { content: "\f12b"; }
+.flaticon-gastronomy:before { content: "\f12c"; }
+.flaticon-coffee-cup-1:before { content: "\f12d"; }
+.flaticon-cake-1:before { content: "\f12e"; }
+.flaticon-cupcake:before { content: "\f12f"; }
+.flaticon-groceries:before { content: "\f130"; }
+.flaticon-lobster:before { content: "\f131"; }
+.flaticon-romantic-dinner:before { content: "\f132"; }
+.flaticon-croissant:before { content: "\f133"; }
+.flaticon-chef:before { content: "\f134"; }
+.flaticon-harvest:before { content: "\f135"; }
+.flaticon-sausages:before { content: "\f136"; }
+.flaticon-fried-potatoes:before { content: "\f137"; }
+.flaticon-hot-food:before { content: "\f138"; }
+.flaticon-wheat:before { content: "\f139"; }
+.flaticon-cutlery-1:before { content: "\f13a"; }
+.flaticon-soup:before { content: "\f13b"; }
+.flaticon-chefs-hat:before { content: "\f13c"; }
+.flaticon-boiled:before { content: "\f13d"; }
+.flaticon-cutlery-2:before { content: "\f13e"; }
+.flaticon-restaurant-2:before { content: "\f13f"; }
+.flaticon-take-away:before { content: "\f140"; }
+.flaticon-pumpkin:before { content: "\f141"; }
+.flaticon-cutlery-3:before { content: "\f142"; }
+.flaticon-roast-chicken:before { content: "\f143"; }
+.flaticon-cocktail:before { content: "\f144"; }
+.flaticon-menu:before { content: "\f145"; }
+.flaticon-cheese:before { content: "\f146"; }
+.flaticon-chicken-leg-1:before { content: "\f147"; }
+.flaticon-delivery-man:before { content: "\f148"; }
+.flaticon-beat:before { content: "\f149"; }
+.flaticon-fish-1:before { content: "\f14a"; }
+.flaticon-meat:before { content: "\f14b"; }
+.flaticon-spaghetti:before { content: "\f14c"; }
+.flaticon-coffee:before { content: "\f14d"; }
+.flaticon-guava:before { content: "\f14e"; }
+.flaticon-hamburger-2:before { content: "\f14f"; }
+.flaticon-pizza-1:before { content: "\f150"; }
+.flaticon-thanksgiving:before { content: "\f151"; }
+.flaticon-dinner:before { content: "\f152"; }
+.flaticon-fish-2:before { content: "\f153"; }
+.flaticon-noodle:before { content: "\f154"; }
+.flaticon-fast-food-4:before { content: "\f155"; }
+.flaticon-sausage:before { content: "\f156"; }
+.flaticon-gingerbread-man:before { content: "\f157"; }
+.flaticon-chef-1:before { content: "\f158"; }
+.flaticon-turkey:before { content: "\f159"; }
+.flaticon-coffee-1:before { content: "\f15a"; }
+.flaticon-coca-tea:before { content: "\f15b"; }
+.flaticon-wedding-cake:before { content: "\f15c"; }
+.flaticon-cupcake-1:before { content: "\f15d"; }
+.flaticon-fast-food-5:before { content: "\f15e"; }
+.flaticon-manufacturing:before { content: "\f15f"; }
+.flaticon-scooter:before { content: "\f160"; }
+.flaticon-review:before { content: "\f161"; }
+.flaticon-street-food:before { content: "\f162"; }
+.flaticon-sausage-1:before { content: "\f163"; }
+.flaticon-baking:before { content: "\f164"; }
+.flaticon-baking-1:before { content: "\f165"; }
+.flaticon-muffin:before { content: "\f166"; }
+.flaticon-hop:before { content: "\f167"; }
+.flaticon-nature:before { content: "\f168"; }
+.flaticon-organic:before { content: "\f169"; }
+.flaticon-carrot:before { content: "\f16a"; }
+.flaticon-food-delivery:before { content: "\f16b"; }
+.flaticon-pizza-box:before { content: "\f16c"; }
+.flaticon-pizza-box-1:before { content: "\f16d"; }
+.flaticon-pizza-deliver:before { content: "\f16e"; }
+.flaticon-delivery-man-1:before { content: "\f16f"; }
