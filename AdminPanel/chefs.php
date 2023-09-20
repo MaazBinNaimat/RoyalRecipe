@@ -4,6 +4,9 @@
 ?>
 <div class="container my-5 ">
     <h1 class="display-4">Chefs</h1>
+    <div class="container-fluid text-end">
+        <a href="approvedchefs.php" class="button-2">AProved chefs</a>
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
@@ -46,7 +49,7 @@
                     <td collspan="2">
                     <form method="post">
                             <input type="hidden" name="chef_id" value="<?php echo $data['u_id']; ?>">
-                            <button class="btn btn-success" type="submit" name="approve">
+                            <button class="button-1" type="submit" name="approve">
                                 <!-- <a href="?uid="> -->
                                 Approve
                             <!-- </a> -->
@@ -54,10 +57,10 @@
                         </form>
                         <form method="post">
                             <input type="hidden" name="chef_id" value="<?php echo $data['u_id']; ?>">
-                            <button class="btn btn-warning my-2" type="submit" name="reject">Reject</button>
+                            <button class="button-3 my-1" type="submit" name="reject">Reject</button>
                         </form>
                     <form action="" method="get">
-                            <a href="?d_id=<?php echo $data['u_id']; ?>" class="btn btn-danger rounded-pill">Delete</a>    
+                            <a href="?d_id=<?php echo $data['u_id']; ?>" class="button-4">Delete</a>    
                         </form>
                     </td>
                         </tr>

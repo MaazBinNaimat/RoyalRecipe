@@ -9,6 +9,14 @@ if (isset($_POST['approve'])) {
     $updateQuery = $pdo->prepare("UPDATE recipes SET status = 'Approved' WHERE id = :recipe_id");
     $updateQuery->bindParam("recipe_id", $recipeId);
     $updateQuery->execute();
+        
+    // Recipe approve hone par uski notification ko session se remove karen
+    foreach ($_SESSION['pending_notifications'] as $key => $notification) {
+        if (strpos($notification, "ID: $recipeId") !== false) {
+            unset($_SESSION['pending_notifications'][$key]);
+            break; // Notification mil gayi hai, loop se bahar niklo
+        }
+    }
     echo "<script>alert('Recipe approved successfully');</script>";
 }
 
@@ -19,6 +27,14 @@ if (isset($_POST['reject'])) {
     $updateQuery = $pdo->prepare("UPDATE recipes SET status = 'Rejected' WHERE id = :recipe_id");
     $updateQuery->bindParam("recipe_id", $recipeId);
     $updateQuery->execute();
+    
+     // Recipe reject hone par uski notification ko session se remove karen
+     foreach ($_SESSION['pending_notifications'] as $key => $notification) {
+        if (strpos($notification, "ID: $recipeId") !== false) {
+            unset($_SESSION['pending_notifications'][$key]);
+            break; // Notification mil gayi hai, loop se bahar niklo
+        }
+    }
     echo "<script>alert('Recipe rejected successfully');</script>";
 }
 
@@ -28,8 +44,15 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<div class="container-fluid pt-4 px-4 my-3">
+<div class="container-fluid py-4 my-3">
+    <div class="row">
+        <div class="col-12">
+        
     <div class="table-responsive">
+        <div class="display-5">Recipes</div>
+        <div class="container-fluid text-end">
+            <a href="approvedrecipes.php" class="button-2 text-center">Approevd Recipes</a>
+        </div>
         <table class="table table-light text-center">
             <thead>
             <tr>
@@ -70,16 +93,16 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                     <td>
                         <form method="post">
                             <input type="hidden" name="recipe_id" value="<?php echo $data['id']; ?>">
-                            <button class="btn btn-success" type="submit" name="approve">Approve</button>
+                            <button class="button-1" type="submit" name="approve">Approve</button>
                         </form>
                         <form method="post">
                             <input type="hidden" name="recipe_id" value="<?php echo $data['id']; ?>">
-                            <button class="btn btn-warning my-2" type="submit" name="reject">Reject</button>
+                            <button class="button-3 my-2" type="submit" name="reject">Reject</button>
                         </form>
                         <form action="" method="get">
-                            <button class="btn btn-danger">
-                                <a href="?d_id=<?php echo $data['id']; ?>" class="text-dark">Delete</a>
-                            </button>
+                            
+                                <a href="?d_id=<?php echo $data['id']; ?>" class="button-4">Delete</a>
+                            
                         </form>
                     </td>
                 </tr>
@@ -97,6 +120,9 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
                 ?>
             </tbody>
         </table>
+    </div>
+        
+    </div>
     </div>
 </div>
 <?php

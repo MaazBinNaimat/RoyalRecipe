@@ -3,20 +3,20 @@
     if($_SESSION['uid']==1){
 ?>
 <div class="container my-5 ">
-    <h1 class="display-4">Chefs</h1>
+    <h1 class="display-5">Users</h1>
     <div class="row">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-4">
-                <h6 class="mb-4">Chefs</h6>
+                <h6 class="mb-4">Users</h6>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Chef Name</th>
-                                <th scope="col">Joining Date</th>
-                                <th scope="col">Chef Rating</th>
-                                <th scope="col">Chef Image</th>
+                                <th scope="col">Name</th>
+                                
+                                
+                                <th scope="col">Email</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -37,15 +37,10 @@
                     <td>
                         <?php echo $data['u_email'];?>
                     </td>
-                    <td>
-                        <?php echo $data['u_email'];?>
-                    </td>
-                    <td>
-                        <?php echo $data['u_email'];?>
-                    </td>
+                    
                     <td collspan="2">
                     <form action="" method="get">
-                            <a href="?d_id=<?php echo $data['u_id']; ?>" class="btn btn-danger rounded-pill">Delete</a>    
+                            <a href="?d_id=<?php echo $data['u_id']; ?>" class="button-3">Delete</a>    
                         </form>
                     </td>
                         </tr>

@@ -23,7 +23,7 @@
                             <input name="catimg" class="form-control" type="file" id="formFile">
                         </div>
 
-                        <button type="submit" class="btn btn-primary" name="addcat">add category</button>
+                        <button type="submit" class="button-5 mt-3" name="addcat">Add Category</button>
                 </div>
             </div>
         </form>

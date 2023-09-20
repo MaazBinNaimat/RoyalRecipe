@@ -30,6 +30,125 @@ include("../session.php");
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+    .button-1 {
+    display: inline-block;
+    height: auto;
+    padding: 12px 25px;
+    border: 1px solid #C19D60;
+    border-radius: 0;
+    background-color: transparent;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #C19D60;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-1:hover {
+  border: 1px solid #C19D60;
+  background-color: #C19D60;
+  color: #000;
+}
+
+/* button 2 */
+.button-2 {
+    display: inline-block;
+    height: auto;
+    padding: 12px 25px;
+    border: 1px solid #C19D60;
+    border-radius: 0;
+    background-color: #C19D60;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-2:hover {
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #C19D60;
+  font-weight: 400;
+}
+/* button 3 */
+.button-3 {
+    display: inline-block;
+    height: auto;
+    padding: 12px 25px;
+    border: 1px solid #1b1b1b;
+    border-radius: 0;
+    background-color: transparent;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #1b1b1b;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-3:hover {
+  border: 1px solid #1b1b1b;
+  background-color: #1b1b1b;
+  color: #fff;
+}
+/* button 4 */
+.button-4 {
+    display: inline-block;
+    height: auto;
+    padding: 15px 25px;
+    border: 1px solid #1b1b1b;
+    border-radius: 0;
+    background-color: #1b1b1b;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-4:hover {
+  border: 1px solid #1b1b1b;
+  background-color: transparent;
+  color: #1b1b1b;
+}
+
+/* button 5 */
+.button-5 {
+    display: inline-block;
+    height: auto;
+    padding: 12px 25px;
+    border: 1px solid #C19D60;
+    border-radius: 0;
+    background-color: #C19D60;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-5:hover {
+  border: 1px solid #C19D60;
+  background-color: transparent;
+  color: #fff;
+}
+</style>
 
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
@@ -59,14 +178,14 @@ include("../session.php");
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="category.php" class="nav-item nav-link active mt-1"><i class="fa fa-th me-2"></i>Categories</a>
-                    <a href="chefs.php" class="nav-item nav-link active mt-1"><i class="fa fa-keyboard me-2"></i>Chefs</a>
-                    <a href="users.php" class="nav-item nav-link active mt-1"><i class="fa fa-keyboard me-2"></i>Users</a>
-                    <a href="recipe.php" class="nav-item nav-link active mt-1"><i class="fa fa-keyboard me-2"></i>Recipes</a>
+                    <a href="index.php" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="category.php" class="nav-item nav-link  mt-1"><i class="fa fa-th me-2"></i>Categories</a>
+                    <a href="chefs.php" class="nav-item nav-link  mt-1"><i class="fa fa-user me-2"></i>Chefs</a>
+                    <a href="users.php" class="nav-item nav-link  mt-1"><i class="fa fa-users me-2"></i>Users</a>
+                    <a href="recipe.php" class="nav-item nav-link  mt-1"><i class="fa fa-keyboard me-2"></i>Recipes</a>
                     
-                    <a href="approvedrecipes.php" class="nav-item nav-link active mt-1"><i class="fa fa-chart-bar me-2"></i>Approved Recipes</a>
-                    <a href="approvedchefs.php" class="nav-item nav-link active mt-1"><i class="fa fa-chart-bar me-2"></i>Approved Chefs</a>
+                    <a href="downloadrecipes.php" class="nav-item nav-link  mt-1"><i class="fa fa-chart-bar me-2"></i>Downloaded Recipes</a>
+                    
                     
                 </div>
             </nav>
@@ -86,6 +205,7 @@ include("../session.php");
                 </a>
                 
                 <div class="navbar-nav align-items-center ms-auto">
+                    <a href="../index.php" class="button-5">Site</a>
                     
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -93,21 +213,56 @@ include("../session.php");
                             <span class="d-none d-lg-inline-flex">Notificatin</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                        <?php
+                        if (isset($_SESSION['pending_notifications']) && !empty($_SESSION['pending_notifications'])) {
+                            foreach ($_SESSION['pending_notifications'] as $notification) {
+                                preg_match('/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/', $notification, $matches);
+
+                                if (!empty($matches[1])) {
+                                    $timestamp = strtotime($matches[1]);
+                                    $timeAgo = time() - $timestamp;
+                                    $timeAgoText = getTimeAgo($timeAgo);
+                                } else {
+                                    $timeAgoText = "Unknown";
+                                }
+                                ?>
+                                <a href="recipe.php?id=<?php echo $recipeId; ?>" class="dropdown-item">
+                                    <h6 class="fw-normal mb-0"><?php echo $notification; ?></h6>
+                                    <small><?php echo $timeAgoText; ?></small>
+                                </a>
+                                <hr class="dropdown-divider">
+                                <?php
+                            }
+                        } else {
+                            ?>
                             <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Profile updated</h6>
-                                <small>15 minutes ago</small>
+                                <h6 class="fw-normal mb-0">Notification area clear</h6>
                             </a>
                             <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
+                            <?php
+                        }
+
+                        function getTimeAgo($timeAgo) {
+                            $timeAgoInMinutes = floor($timeAgo / 60);
+                            
+                            if ($timeAgoInMinutes < 1) {
+                                return "Just now";
+                            } elseif ($timeAgoInMinutes == 1) {
+                                return "1 minute ago";
+                            } elseif ($timeAgoInMinutes < 60) {
+                                return $timeAgoInMinutes . " minutes ago";
+                            } elseif ($timeAgoInMinutes < 120) {
+                                return "1 hour ago";
+                            } elseif ($timeAgoInMinutes < 1440) {
+                                return floor($timeAgoInMinutes / 60) . " hours ago";
+                            } elseif ($timeAgoInMinutes < 2880) {
+                                return "1 day ago";
+                            } else {
+                                return floor($timeAgoInMinutes / 1440) . " days ago";
+                            }
+}
+?>
+
                             <a href="#" class="dropdown-item text-center">See all notifications</a>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ if($_SESSION['uid']==1){
 ?>
 <div class="container-fluid pt-4 px-4 my-3">
     <div class="col p-3 g-4">
-        <h3>Update Your Category</h3>
+        <h3 class="display-5">Update Category</h3>
     </div>
     <div class="row">
     <?php
@@ -16,7 +16,7 @@ if($_SESSION['uid']==1){
         $data = $query->fetch(PDO::FETCH_ASSOC);
     ?>
         <form method="post" enctype="multipart/form-data">
-            <div class="col-sm-12 col-lg-10">
+            <div class="col-sm-12 col-lg-12">
                 <div class="bg-light rounded h-100 p-4">
 
                     <div class="mb-3">
@@ -26,11 +26,11 @@ if($_SESSION['uid']==1){
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Add Your Product Image</label>
-                        <input name="updcatimg" class="form-control" type="file" id="formFile">
+                        <input name="updcatimg" class="form-control mb-3" type="file" id="formFile">
                         <img src="img/<?php echo $data['c_img'];?>" width="100px" alt="">
                     </div>
 
-                    <button type="submit" class="btn btn-primary" name="updatecat">Update Category</button>
+                    <button type="submit" class="button-4 mt-3" name="updatecat">Update Category</button>
                 </div>
             </div>
         </form>
@@ -78,7 +78,7 @@ if($_SESSION['uid']==1){
             }
             }
             ?>
-        ?>
+        
     </div>
 </div>
 <?php

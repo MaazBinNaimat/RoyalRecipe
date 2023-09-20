@@ -107,6 +107,16 @@ if (isset($_POST['add_recipe'])) {
             $query->bindParam("cook_time", $cook_time);
             $query->bindParam("image", $recipe_img);
             $query->execute();
+             // Notification setup
+            // Get the ID of the last inserted recipe
+            $recipeId = $pdo->lastInsertId();
+
+// Notification setup
+$newRecipeName = $recipe_name; // Recipe name
+$timestamp = date('Y-m-d H:i:s'); // Current timestamp
+$notificationMessage = "(ID: $recipeId): $newRecipeName New recipe uploaded at $timestamp";
+$_SESSION['pending_notifications'][] = $notificationMessage;
+// Notification setup end
             echo "<script>alert('Recipe added successfully'); location.assign('chefboard.php');</script>";
         }
     } else {
@@ -118,4 +128,12 @@ if (isset($_POST['add_recipe'])) {
 
 <?php
 include("foot.php");
+?>
+
+
+<!-- notification system -->
+<?php
+if (!isset($_SESSION['pending_notifications'])) {
+    $_SESSION['pending_notifications'] = array();
+}
 ?>

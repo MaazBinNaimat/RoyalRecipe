@@ -3,11 +3,11 @@
     if($_SESSION['uid']==1){
 ?>
 <div class="container my-5 ">
-    <h1 class="display-4">Categories</h1>
+    <h1 class="display-5">Categories</h1>
     <div class="row">
         <div class="col-12">
             <div class="bg-light rounded h-100 p-3">
-            <a href="createcategory.php" type="button" class="text-end mb-3 btn btn-success rounded-pill m-2">Create Category</a>
+            <a href="createcategory.php" type="button" class="text-end mb-3 rounded-pill m-2 button-5">Add Category</a>
                 <div class="table-responsive">
                     <table class="table">
                         <thead>
@@ -40,10 +40,10 @@
                     <td><img src="img/<?php echo $data['c_img'];?>" width="100px"></td>
                     <td collspan="2">
                         <form action="" method="get">
-                            <a href="catupdate.php?id=<?php echo $data['c_id']; ?>" class="btn btn-success rounded-pill">Update</a>    
+                            <a href="catupdate.php?id=<?php echo $data['c_id']; ?>" class="btn button-3 mb-1">Update</a>    
                         </form>
                         <form action="" method="get">
-                            <a href="?d_id=<?php echo $data['c_id']; ?>" class="btn btn-danger rounded-pill">Delete</a>    
+                            <a href="?d_id=<?php echo $data['c_id']; ?>" class="button-4 ">Delete</a>    
                         </form>
                     </td>
                 </tr>
