@@ -15,7 +15,7 @@ if(isset($_GET['id'])) {
 ?>
 
 <div class="container-fluid pt-4 px-4">
-    <h3 class="text-center text-info text-uppercase">Update Recipe</h3>
+    <h3 class="text-center text-uppercase" style="color:#c19d16;">Update Recipe</h3>
     <div class="bg-light rounded h-100 p-4">
         <form method="post" enctype="multipart/form-data">
             <input type="hidden" name="recipe_id" value="<?php echo $recipe_id; ?>">
@@ -46,12 +46,20 @@ if(isset($_GET['id'])) {
                     ?>
                 </select>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Price</label>
-                <input type="number" class="form-control" name="recipe_price" value="<?php echo $recipeData['price']; ?>">
-            </div>
+            <?php
+if ($recipeData['payment_status'] == 'Paid') {
+    // Recipe is not free, so display the "Price" input field
+    ?>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Price</label>
+        <input type="number" class="form-control" name="recipe_price" value="<?php echo $recipeData['price']; ?>">
+    </div>
+<?php
+}
+?>
+
             <!-- Other form fields -->
-            <button type="submit" class="btn btn-primary" name="update_recipe">Update Recipe</button>
+            <button type="submit" class="button-3 mt-3" name="update_recipe">Update Recipe</button>
         </form>
     </div>
 </div>

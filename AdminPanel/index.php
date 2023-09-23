@@ -159,7 +159,7 @@ if($_SESSION['uid']==1){
                 aria-controls="Collapse8">
                 <i class="fa fa-chart-bar fa-3x " style="color:#C19D60;"></i>
                 <div class="ms-3">
-                    <p class="mb-2">Download Paid Recipes</p>
+                    <p class="mb-2">Downloaded  Recipes</p>
                     <h6 class="mb-0">
                         <?php
                                     $query=$pdo->query("Select count(*)as total_paid from downloadedrecipes");
@@ -173,26 +173,7 @@ if($_SESSION['uid']==1){
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-xl-4">
-            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4" id="btn-toggle9"
-                class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#Collapse9" aria-expanded="false"
-                aria-controls="Collapse9">
-                <i class="fa fa-chart-bar fa-3x " style="color:#C19D60;"></i>
-                <div class="ms-3">
-                    <p class="mb-2">Download Free Recipes</p>
-                    <h6 class="mb-0">
-                        <?php
-                                     $query=$pdo->query("Select count(*)as total_free from downloadedrecipes");
-                                     $tr=$query->fetch(PDO::FETCH_ASSOC);
- 
- 
- 
-                                     echo $tr['total_free'];
-                                    ?>
-                    </h6>
-                </div>
-            </div>
-        </div>
+        
 
     </div>
 
@@ -207,15 +188,8 @@ if($_SESSION['uid']==1){
 
 
         <!-- filter data -->
-        <p>
-            <!-- <button id="btn-toggle1" class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                data-bs-target="#Collapse1" aria-expanded="false" aria-controls="Collapse1">Panding recipes</button>
-            <button id="btn-toggle2" class="btn btn-primary" type="button" data-bs-toggle="collapse"
-                data-bs-target="#Collapse2" aria-expanded="false" aria-controls="Collapse2">Toggle second
-                element</button> -->
-        </p>
         <!-- php -->
-        <!-- Recent Sales Start -->
+        
         <div class="container-fluid pt-4 px-4">
 
             <div class="row">

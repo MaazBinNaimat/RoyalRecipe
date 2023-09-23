@@ -36,7 +36,8 @@
                       alert('Logged in successfully with cheaf');
                       location.assign('chefPanel/chefboard.php');
                     </script>";
-            }elseif ($_SESSION['ustatus'] == 'Rejected' || $_SESSION['ustatus'] == 'Pending') {
+            }
+            elseif ($_SESSION['ustatus'] == 'Rejected' || $_SESSION['ustatus'] == 'Pending') {
               echo "<script>
               alert('Logged in successfully');
               location.assign('index.php');

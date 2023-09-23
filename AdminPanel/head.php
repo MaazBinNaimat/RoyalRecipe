@@ -215,8 +215,11 @@ include("../session.php");
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                         <?php
                         if (isset($_SESSION['pending_notifications']) && !empty($_SESSION['pending_notifications'])) {
-                            foreach ($_SESSION['pending_notifications'] as $notification) {
+                            foreach ($_SESSION['pending_notifications'] as  $notification) {
                                 preg_match('/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/', $notification, $matches);
+                                $recipeId = explode(":",$notification,3);
+                                // $count=count($recipeId);
+                                
 
                                 if (!empty($matches[1])) {
                                     $timestamp = strtotime($matches[1]);
@@ -226,13 +229,18 @@ include("../session.php");
                                     $timeAgoText = "Unknown";
                                 }
                                 ?>
-                                <a href="recipe.php?id=<?php echo $recipeId; ?>" class="dropdown-item">
+                                <a href="recipe.php?rid=<?php echo($recipeId[1]) ; ?>" class="dropdown-item">
                                     <h6 class="fw-normal mb-0"><?php echo $notification; ?></h6>
                                     <small><?php echo $timeAgoText; ?></small>
                                 </a>
                                 <hr class="dropdown-divider">
                                 <?php
+                                // print_r($notification);
+                               
                             }
+                           
+                        
+                            
                         } else {
                             ?>
                             <a href="#" class="dropdown-item">

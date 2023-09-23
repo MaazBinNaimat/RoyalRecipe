@@ -3,7 +3,7 @@ include("head.php");
 ?>
 
 <div class="container-fluid pt-4 px-4">
-    <h3 class="text-center text-info text-uppercase">Add Recipe</h3>
+    <h3 class="text-center text-uppercase" style="color:#c17d19;">Add Recipe</h3>
     <div class="bg-light rounded h-100 p-4">
         <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
@@ -55,7 +55,11 @@ include("head.php");
                 <label for="exampleInputPassword1" class="form-label">Image</label>
                 <input type="file" class="form-control" name="recipe_image" id="exampleInputPassword1">
             </div>
-            <button type="submit" class="btn btn-primary" name="add_recipe">Add Recipe</button>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">upload PDF OR DOCX</label>
+                <input type="file" class="form-control" name="rceipe_document">
+            </div>
+            <button type="submit" class="button-2" name="add_recipe">Add Recipe</button>
         </form>
     </div>
 </div>
@@ -87,53 +91,61 @@ if (isset($_POST['add_recipe'])) {
     } else {
         $recipe_price = "Free";
     }
-
+// for image
     $recipe_img = $_FILES['recipe_image']['name'];
     $tmp_recipe_img = $_FILES['recipe_image']['tmp_name'];
     $extension = pathinfo($recipe_img, PATHINFO_EXTENSION);
     $destination = 'img/recipes/' . $recipe_img;
+// for document
+$recipeDocument = $_FILES['rceipe_document']['name'];
+$recipeTmpDocument= $_FILES['rceipe_document']['tmp_name'];
+$recipeDocumentSize= $_FILES['rceipe_document']['size'];
+$recipeDocumentExtension = pathinfo($recipeDocument,PATHINFO_EXTENSION);
+$recipeDocumentDestinition = "img/recipes/".$recipeDocument;
+if($recipeDocumentSize>500000){
+    echo "<script>alert('file is heavy')</script>";
 
-    if ($extension == "jpg" || $extension == "png" || $extension == "jpeg") {
-        if (move_uploaded_file($tmp_recipe_img, $destination)) {
-            $query = $pdo->prepare("INSERT INTO recipes (title, ingredients, instructions, category_id, chef_id, payment_status, price, prep_time, cook_time, image) VALUES (:title, :ingredients, :instructions, :category_id, :chef_id, :payment_status, :price, :prep_time, :cook_time, :image)");
-            $query->bindParam("title", $recipe_name);
-            $query->bindParam("ingredients", $recipe_ingredients);
-            $query->bindParam("instructions", $recipe_instructions);
-            $query->bindParam("category_id", $recipe_category);
-            $query->bindParam("chef_id", $chef_id);
-            $query->bindParam("payment_status", $payment_status);
-            $query->bindParam("price", $recipe_price);
-            $query->bindParam("prep_time", $prep_time);
-            $query->bindParam("cook_time", $cook_time);
-            $query->bindParam("image", $recipe_img);
+}else{
+
+    if (($extension == "jpg" || $extension == "png" || $extension == "jpeg" || $extension == "webp") && ($recipeDocumentExtension == "pdf" || $recipeDocumentExtension == "docx")) {
+        if ((move_uploaded_file($tmp_recipe_img, $destination)) && (move_uploaded_file($recipeTmpDocument, $recipeDocumentDestinition))) {
+            $query = $pdo->prepare("INSERT INTO recipes (title, ingredients, instructions, category_id, chef_id, payment_status, price, prep_time, cook_time, image, document) VALUES (:title, :ingredients, :instructions, :category_id, :chef_id, :payment_status, :price, :prep_time, :cook_time, :image, :doc)");
+            $query->bindParam(":title", $recipe_name);
+            $query->bindParam(":ingredients", $recipe_ingredients);
+            $query->bindParam(":instructions", $recipe_instructions);
+            $query->bindParam(":category_id", $recipe_category);
+            $query->bindParam(":chef_id", $chef_id);
+            $query->bindParam(":payment_status", $payment_status);
+            $query->bindParam(":price", $recipe_price);
+            $query->bindParam(":prep_time", $prep_time);
+            $query->bindParam(":cook_time", $cook_time);
+            $query->bindParam(":image", $recipe_img);
+            $query->bindParam(":doc", $recipeDocument);
             $query->execute();
-             // Notification setup
+            
+            // Notification setup
             // Get the ID of the last inserted recipe
             $recipeId = $pdo->lastInsertId();
-
-// Notification setup
-$newRecipeName = $recipe_name; // Recipe name
-$timestamp = date('Y-m-d H:i:s'); // Current timestamp
-$notificationMessage = "(ID: $recipeId): $newRecipeName New recipe uploaded at $timestamp";
-$_SESSION['pending_notifications'][] = $notificationMessage;
-// Notification setup end
+    
+            // Notification setup
+            $newRecipeName = $recipe_name; // Recipe name
+            $timestamp = date('Y-m-d H:i:s'); // Current timestamp
+            $notificationMessage = "(ID: $recipeId): $newRecipeName New recipe uploaded at $timestamp";
+            $_SESSION['pending_notifications'][] = $notificationMessage;
+            // Notification setup end
+    
             echo "<script>alert('Recipe added successfully'); location.assign('chefboard.php');</script>";
         }
-    } else {
-        echo "<script>alert('Invalid image format.');</script>";
     }
+    else {
+        echo "<script>alert('Invalid image format.');</script>";
+    }}
+
 }
+
 ?>
 
 
 <?php
 include("foot.php");
-?>
-
-
-<!-- notification system -->
-<?php
-if (!isset($_SESSION['pending_notifications'])) {
-    $_SESSION['pending_notifications'] = array();
-}
 ?>

@@ -7,15 +7,22 @@
                             <h3 class="footer-title">About Us</h3>
                             <p class="footer-about-text">Restaurant metus dibus eudui aolicitudin istique lacus in the vestibulum congue est vitae maximus duru ne lacus in massa tristique aharetra ne ut isum.</p>
                             <div class="footer-language">
-                            <?php if ($_SESSION['uid'] == 1 || $_SESSION['uid'] == 2) {
+                            <?php 
+                                if(isset($_SESSION['uemail'])){
+
                                 
-                            }else {?>
+                            if ($_SESSION['uid'] == 1 || $_SESSION['uid'] == 2) {
+                                
+                            }
+                            else {?>
                                 <form action="registerbecomechef.php" method="get">
                                 <button type="" id="becomeChefBtn"  class="button-2">
                                  <a href="registerbecomechef.php?uid=<?php echo $uid; ?>"  class="text-light"> Become a Chef</a>   
                                 </button>
                             </form>  <?php  
-                            } ?>
+                            }
+                         } ?>
+                            
                             </div>
                         </div>
                     </div>

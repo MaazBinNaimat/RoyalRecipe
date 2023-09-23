@@ -31,6 +31,127 @@
     <link href="../adminpanel/css/style.css" rel="stylesheet">
 </head>
 
+<style>
+    .button-1 {
+    display: inline-block;
+    height: auto;
+    padding: 12px 25px;
+    border: 1px solid #C19D60;
+    border-radius: 0;
+    background-color: transparent;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #C19D60;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-1:hover {
+  border: 1px solid #C19D60;
+  background-color: #C19D60;
+  color: #000;
+}
+
+/* button 2 */
+.button-2 {
+    display: inline-block;
+    height: auto;
+    padding: 12px 25px;
+    border: 1px solid #C19D60;
+    border-radius: 0;
+    background-color: #C19D60;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-2:hover {
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #C19D60;
+  font-weight: 400;
+}
+/* button 3 */
+.button-3 {
+    display: inline-block;
+    height: auto;
+    padding: 12px 25px;
+    border: 1px solid #1b1b1b;
+    border-radius: 0;
+    background-color: transparent;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #1b1b1b;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-3:hover {
+  border: 1px solid #1b1b1b;
+  background-color: #1b1b1b;
+  color: #fff;
+}
+/* button 4 */
+.button-4 {
+    display: inline-block;
+    height: auto;
+    padding: 15px 25px;
+    border: 1px solid #1b1b1b;
+    border-radius: 0;
+    background-color: #1b1b1b;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-4:hover {
+  border: 1px solid #1b1b1b;
+  background-color: transparent;
+  color: #1b1b1b;
+}
+
+/* button 5 */
+.button-5 {
+    display: inline-block;
+    height: auto;
+    padding: 12px 25px;
+    border: 1px solid #C19D60;
+    border-radius: 0;
+    background-color: #C19D60;
+    -webkit-transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    transition: border-color 400ms ease, color 400ms ease, background-color 400ms ease;
+    color: #fff;
+    line-height: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+.button-5:hover {
+  border: 1px solid #C19D60;
+  background-color: transparent;
+  color: #fff;
+}
+</style>
+
+
 <body>
     <div class="container-xxl position-relative bg-white d-flex p-0">
         <!-- Spinner Start -->
@@ -51,19 +172,28 @@
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <?php
-                        $uid = $_SESSION['uid'];
-                        if ($uid == 2) {
-                            ?>
-                            <img class="rounded-circle" src="../adminpanel/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                            <?php
-                        }else {
-                            ?>
-                            <img class="rounded-circle" src="../adminpanel/img/user1.jpg" alt="" style="width: 40px; height: 40px;">
-                            <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                            <?php
-                        }
-                        ?>
+                        $uid = $_SESSION['id'];
+                        
+// Prepare and execute the query to fetch the user's image
+$query = $pdo->prepare("SELECT Profile_Picture FROM users WHERE u_id = :uid");
+$query->bindValue(':uid', $uid);
+$query->execute();
+
+// Fetch the result
+$userData = $query->fetch(PDO::FETCH_ASSOC);
+
+if ($userData) {
+    // User image found
+    $userImage = $userData['Profile_Picture'];
+    echo '<img class="rounded-circle" style="width: 40px; height: 40px;" src="img/users/' . $userImage . '" alt="User Image">';
+    ?>
+    <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+    <?php
+} else {
+    // User not found or image doesn't exist
+    echo '<img src="../AdminPanel/img/user.jpg" alt="Default Image">';
+}
+?>
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0"><?php echo $_SESSION['uname'];?></h6>
@@ -71,8 +201,9 @@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="chefboard.php" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <a href="addrecipe.php" class="nav-item nav-link active mt-1"><i class="fa fa-th me-2"></i>Add Recipe</a>
+                    <a href="chefboard.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="viewrecipe.php" class="nav-item nav-link mt-1"><i class="fa fa-th me-2"></i>View Recipes</a>
+                    <a href="addrecipe.php" class="nav-item nav-link mt-1"><i class="fa fa-th me-2"></i>Add Recipe</a>
                     
                 </div>
             </nav>
@@ -93,42 +224,23 @@
                 
                 <div class="navbar-nav align-items-center ms-auto">
                     
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2" style="color:#C19D60;"></i>
-                            <span class="d-none d-lg-inline-flex">Notificatin</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Profile updated</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">New user added</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0">Password changed</h6>
-                                <small>15 minutes ago</small>
-                            </a>
-                            <hr class="dropdown-divider">
-                            <a href="#" class="dropdown-item text-center">See all notifications</a>
-                        </div>
-                    </div>
+                    <a href="../index.php" class="button-2 me-3">Site</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <?php
-                        if ($uid == 2) {
-                            ?>
-                            <img class="rounded-circle me-lg-2" src="../AdminPanel/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <?php
-                        }else {
-                            ?>
-                            <img class="rounded-circle me-lg-2" src="../AdminPanel/img/user1.jpg" alt="" style="width: 40px; height: 40px;">
-                            <?php
-                        }
+                            // 
+                            if ($userData) {
+                                // User image found
+                                $userImage = $userData['Profile_Picture'];
+                                echo '<img class="rounded-circle me-lg-2" style="width: 40px; height: 40px;" src="img/users/' . $userImage . '" alt="User Image">';
+                             
+                            } else {
+                                // User not found or image doesn't exist
+                                ?>
+                                <img class="rounded-circle me-lg-2" src="../AdminPanel/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                <?php
+                            }
+                            // 
                         ?>
                           
                             <span class="d-none d-lg-inline-flex"><?php echo $_SESSION['uname'];?></span>

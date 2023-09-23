@@ -95,12 +95,7 @@ if (isset($_POST['approve'])) {
   
     $updateQuery->bindParam("chef_id", $chef_id);
     $updateQuery->execute();
-    // Unset and destroy the session
-    session_unset();
-    session_destroy();
-    
-    // Start a new session
-    session_start();
+   
     echo "<script>alert('Chef approved successfully');
     location.assign('chefs.php');
     
@@ -115,12 +110,7 @@ if (isset($_POST['reject'])) {
     $updateQuery = $pdo->prepare("UPDATE users SET status = 'Rejected' WHERE u_id = :chef_id");
     $updateQuery->bindParam("chef_id", $chef_id);
     $updateQuery->execute();
-    // Unset and destroy the session
-    session_unset();
-    session_destroy();
     
-    // Start a new session
-    session_start();
     echo "<script>alert('Chef rejected successfully');
 
     </script>";

@@ -172,14 +172,13 @@ location.assign('login.php')
 <span id="modalRecipePrice"></span></button>
                   <form action="" method="post">
 
-                  <button class="btn btn-info"> review</button>
+
                   </form>
                     <?php } else if ($recipe['payment_status'] == "Free") { ?>
                     <!-- Show the "Download" button for free recipes -->
                     <button type="button" class="button-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Download</button>
-                        <button type="button" class="button-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Review</button>
+                       <a href="chefPanel/recipe/<?php echo  $recipe['document']?>" download > Download</a></button>
+                        
                     
 
                     <?php } ?>
@@ -237,7 +236,7 @@ location.assign('login.php')
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Recipe download & review work on Pending 
+        Recipe file downloaded and review work in pending 😊 
       </div>
       
     </div>

@@ -32,7 +32,7 @@
                         </ul>
                     </li> -->
                 <li class="nav-item"><a class="nav-link" href="team.php">chefs</a></li>
-                
+
                 <li class="nav-item"><a class="nav-link" href="reviews.php">Reviews</a></li>
                 <!-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button"
                             data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Blog <i
@@ -61,6 +61,7 @@
 
             <div class="cart">
                 <?php
+                        if(isset($_SESSION['uemail'])){
                     $u_type = $_SESSION['uid'];
                     $u_status = $_SESSION['ustatus'];
                     $query=$pdo->prepare("select * from users where u_type_id=:u_type");
@@ -77,15 +78,16 @@
                                 ?>
                 <a href="chefPanel/chefboard.php" class="login-btn-1">Chef Panel</a>
                 <a class="login-btn-1" href="profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>
-                                <?php    
+                <?php    
                             }elseif ($u_status == 'Pending') {
                                 ?>
                 <!-- <a href="approvalstatus.php" class="login-btn-1">Approval Status</a> -->
-                <a class="login-btn-1" href="profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>                <?php
+                <a class="login-btn-1" href="profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>
+                <?php
                             }elseif ($u_status == 'Rejected') {
                                 ?>
                 <!-- <a href="rejectstatus.php" class="login-btn-1">Chef Rejected</a> -->
-<a class="login-btn-1" href="profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>
+                <a class="login-btn-1" href="profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>
                 <?php
                             }
                             
@@ -93,14 +95,16 @@
                         }elseif ($u_type == 1) {
                             ?>
                 <a href="AdminPanel/index.php" class="login-btn-1">Admin Panel</a>
-<a class="login-btn-1" href="profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>                <?php
-                            
-                        }else {
-                            ?>
-                <a href="login.php" class="login-btn-1">Log in</a>
-                <a href="register.php" class="login-btn-1">Register</a>
+                <a class="login-btn-1" href="profile.php?id=<?php echo $_SESSION['id']; ?>">Profile</a>
                 <?php
+                            
                         }
+                    }else {
+                        ?>
+            <a href="login.php" class="login-btn-1">Log in</a>
+            <a href="register.php" class="login-btn-1">Register</a>
+            <?php
+                    }
                     ?>
             </div>
 
